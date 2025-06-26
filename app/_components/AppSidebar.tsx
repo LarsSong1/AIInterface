@@ -14,20 +14,21 @@ import {
 import { Calendar, CircleDollarSign, Home, Inbox, Paintbrush, Search, Settings } from "lucide-react"
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import AIInterfaceLogo from '../../public/AIInterfaceLogo-white.png'
 
 const items = [
     {
-        title: "Workspace",
+        title: "Dashboard",
         url: "/dashboard",
         icon: Home,
     },
     {
-        title: "Design",
+        title: "Diseños",
         url: "/designs",
         icon: Paintbrush,
     },
     {
-        title: "Credits",
+        title: "Creditos",
         url: "/credits",
         icon: CircleDollarSign,
     },
@@ -38,15 +39,15 @@ export function AppSidebar() {
     const path = usePathname();
     console.log(path)
     return (
-        <Sidebar>
-            <SidebarHeader>
-                <div className='p-4'>
+        <Sidebar className=''>
+            <SidebarHeader className=''>
+                <div className='p-4 flex justify-center items-center '>
                     <div className='flex items-center gap-2'>
-                        <Image src={'/logo.svg'} alt='logo' width={100} height={100}
-                            className='w-[40px] h-[40px]' />
-                        <h2 className='font-bold text-lg'>Wireframe to Code</h2>
+                        <Image src={AIInterfaceLogo} alt='logo' width={100} height={100}
+                            className='w-[150px] h-[50px]' />
+                        
                     </div>
-                    <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
+                   
                 </div>
             </SidebarHeader>
             <SidebarContent>
@@ -57,10 +58,10 @@ export function AppSidebar() {
                             {items.map((item, index) => (
                                 <a href={item.url} key={index}
                                     className={`p-2 text-lg flex gap-2 items-center
-                                 hover:bg-gray-100 rounded-lg
-                                 ${path == item.url && 'bg-gray-200'}
+                                 hover:bg-purple-900 rounded-lg text-white
+                                 ${path == item.url && ''}
                                  `}>
-                                    <item.icon className='h-5 w-5' />
+                                    <item.icon className='h-5 w-5 text-white' />
                                     <span>{item.title}</span>
                                 </a>
 
@@ -69,9 +70,7 @@ export function AppSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-            <SidebarFooter>
-                <h2 className='p-2 text-gray-400 text-sm'>Copyright @Tubeguruji</h2>
-            </SidebarFooter>
+            
         </Sidebar>
     )
 }

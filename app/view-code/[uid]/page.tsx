@@ -110,8 +110,8 @@ function ViewCode() {
 
     return (
         <div>
-            <AppHeader hideSidebar={true} />
-            <div className='grid grid-cols-1 md:grid-cols-5 p-5 gap-10'>
+            <AppHeader  hideSidebar={true} />
+            <div className='grid bg-black grid-cols-1 md:grid-cols-5 p-5 gap-10'>
                 <div>
                     {/* Selection Details  */}
                     <SelectionDetail record={record} regenrateCode={() => { GetRecordInfo(true) }}
@@ -123,7 +123,7 @@ function ViewCode() {
                     {loading ? <div>
                         <h2 className='font-bold text-2xl text-center p-20 flex items-center justify-center
                         bg-slate-100 h-[80vh] rounded-xl
-                        '> <Loader2 className='animate-spin' /> Anaylzing the Wireframe...</h2>
+                        '> <Loader2 className='animate-spin' /> Analizando Wireframe...</h2>
                     </div> :
                         <CodeEditor codeResp={codeResp} isReady={isReady}
                         />

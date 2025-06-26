@@ -9,7 +9,7 @@ function DashboardLayout({
 }>) {
 
     return (
-        <DashboardProvider>
+        <DashboardProvider >
             {children}
         </DashboardProvider>
     )

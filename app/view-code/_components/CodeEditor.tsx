@@ -4,7 +4,7 @@ import Constants from '@/data/Constants';
 import { aquaBlue } from "@codesandbox/sandpack-themes";
 function CodeEditor({ codeResp, isReady }: any) {
     return (
-        <div>
+        <div className="">
             {isReady ? <Sandpack template="react"
                 theme={aquaBlue}
                 options={{

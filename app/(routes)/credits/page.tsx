@@ -22,13 +22,13 @@ function Credits() {
         <div>
             <h2 className='font-bold text-2xl'>Credits</h2>
 
-            <div className='p-5 bg-slate-50 rounded-xl border
+            <div className='p-5 bg-black border border-white rounded-xl border
              flex justify-between items-center mt-6'>
                 <div>
-                    <h2 className='font-bold text-xl'>My Credits:</h2>
-                    {userData?.credits && <p className='text-lg text-gray-500'>{userData?.credits} Credits left</p>}
+                    <h2 className='font-bold text-xl text-white'>Mis Creditos</h2>
+                    {userData?.credits && <p className='text-lg text-white text-xs '>{userData?.credits} Créditos quedan</p>}
                 </div>
-                <Button>Buy More Credits</Button>
+                <Button className='bg-purple-900'>Comprar más</Button>
             </div>
         </div>
     )

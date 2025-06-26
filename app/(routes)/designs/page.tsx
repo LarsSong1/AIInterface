@@ -23,9 +23,10 @@ function Designs() {
 
     return (
         <div>
-            <h2 className='font-bold text-2xl'>Wireframe & Codes</h2>
+            <h2 className='font-bold text-2xl text-white'>Wireframe y Códigos</h2>
+            <p className='text-white text-xs'>Puedes ver el listado de todos los Códigos que has generado</p>
 
-            <div className='grid grid-cols-2 lg:grid-cols-3 gap-7 mt-10'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-7 mt-10'>
                 {wireframeList?.map((item: RECORD, index) => (
                     <DesignCard key={index} item={item} />
                 ))}

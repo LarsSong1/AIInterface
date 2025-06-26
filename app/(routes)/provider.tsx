@@ -33,9 +33,9 @@ function DashboardProvider({
 
 
     return (
-        <SidebarProvider>
-            <AppSidebar />
-            <main className='w-full'>
+        <SidebarProvider className=''>
+            <AppSidebar  />
+            <main className='w-full bg-black'> 
                 <AppHeader />
                 {/* <SidebarTrigger /> */}
                 <div className='p-10'>{children}</div>

@@ -8,8 +8,9 @@ import React from 'react'
 
 function DesignCard({ item }: any) {
     const modelObj = item && Constants.AiModelList.find((x => x.name == item?.model))
+    console.log(item)
     return (
-        <div className='p-5 border rounded-lg'>
+        <div className='p-5 border border-gray-900 rounded-lg'>
             <Image src={item?.imageUrl} alt='image'
                 width={300} height={200}
                 className='w-full h-[200px] object-cover bg-white rounded-lg'

@@ -87,18 +87,18 @@ function ImageUpload() {
     }
 
     return (
-        <div className='mt-10'>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-                {!previewUrl ? <div className='p-7 border border-dashed rounded-md shadow-md
+        <div className='mt-2'>
+            <div className='flex flex-col justify-center items-center '>
+                {!previewUrl ? <div className='p-2 rounded-md shadow-md
                 flex flex-col items-center justify-center
                 '>
-                    <CloudUpload className='h-10 w-10 text-primary' />
-                    <h2 className='font-bold text-lg'>Upload Image</h2>
+                    <CloudUpload color='purple' className='h-10 w-10 text-primary' />
+                    <h2 className='font-bold text-lg'>Sube una Imagen</h2>
 
-                    <p className='text-gray-400 mt-2'>Click Button Select Wireframe Image </p>
-                    <div className='p-5 border border-dashed w-full flex mt-4 justify-center'>
+                    <p className='text-gray-400 text-xs mt-2'>Presiona el Botón para Escoger tu Wireframe </p>
+                    <div className='p-5 w-full flex mt-4 justify-center'>
                         <label htmlFor='imageSelect'>
-                            <h2 className='p-2 bg-blue-100 font-bold text-primary  rounded-md px-5'>Select Image</h2>
+                            <h2 className='p-2 bg-black border border-white font-bold text-white rounded-md px-5'>Selecciona la Imagen </h2>
                         </label>
 
                     </div>
@@ -119,14 +119,14 @@ function ImageUpload() {
 
                     </div>
                 }
-                <div className='p-7 border shadow-md rounded-lg'>
+                <div className='p-2 shadow-md rounded-lg w-[50%]'>
 
-                    <h2 className='font-bold text-lg'>Select AI Model</h2>
+                    <h2 className='font-bold text-lg text-white'>Selecciona el Modelo de IA</h2>
                     <Select onValueChange={(value) => setModel(value)}>
-                        <SelectTrigger className="w-full">
-                            <SelectValue placeholder="Select AI Model" />
+                        <SelectTrigger className="w-full text-white">
+                            <SelectValue className='text-white' placeholder="Seleccciona IA" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className='bg-black text-white'>
                             {Constants?.AiModelList.map((model, index) => (
                                 <SelectItem value={model.name} key={index} >
                                     <div className='flex items-center gap-2'>
@@ -141,18 +141,18 @@ function ImageUpload() {
                         </SelectContent>
                     </Select>
 
-                    <h2 className='font-bold text-lg mt-7'>Enter Description about your webpage</h2>
+                    <h2 className='font-bold text-lg mt-2 text-white'>Ingresa la descripcion sobre el Wireframe</h2>
                     <Textarea
                         onChange={(event) => setDescription(event?.target.value)}
-                        className='mt-3 h-[150px]'
-                        placeholder='Write about your web page' />
+                        className='mt-3 h-[150px] text-white'
+                        placeholder='Escribe acerca del diseño que deseas generar' />
                 </div>
             </div>
 
             <div className='mt-10 flex items-center justify-center'>
-                <Button onClick={OnConverToCodeButtonClick} disabled={loading}>
+                <Button className='bg-purple-900 text-white' onClick={OnConverToCodeButtonClick} disabled={loading}>
                     {loading ? <Loader2Icon className=' animate-spin' /> : <WandSparkles />}
-                    Convert to Code</Button>
+                    Convertir a Código</Button>
             </div>
         </div>
     )
