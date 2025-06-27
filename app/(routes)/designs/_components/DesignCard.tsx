@@ -24,10 +24,10 @@ function DesignCard({ item }: any) {
                             width={30}
                             height={30}
                         />}
-                        <h2>{modelObj.name}</h2>
+                        <h2>{modelObj?.name}</h2>
                     </div>
                     <Link href={'/view-code/' + item?.uid}>
-                        <Button className=''> <Code /> View Code</Button>
+                        <Button className=''> <Code /> Ver Código</Button>
                     </Link>
                 </div>
             </div>
