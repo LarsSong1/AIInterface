@@ -20,7 +20,7 @@ function Credits() {
 
     return (
         <div>
-            <h2 className='font-bold text-2xl'>Credits</h2>
+            <h2 className='font-bold text-2xl text-white'>Créditos</h2>
 
             <div className='p-5 bg-black border border-white rounded-xl border
              flex justify-between items-center mt-6'>

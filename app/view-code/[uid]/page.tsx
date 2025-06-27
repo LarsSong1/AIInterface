@@ -65,7 +65,7 @@ function ViewCode() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                description: record?.description + ":" + Constants.PROMPT,
+                description: record?.description,
                 model: record.model,
                 imageUrl: record?.imageUrl
             })

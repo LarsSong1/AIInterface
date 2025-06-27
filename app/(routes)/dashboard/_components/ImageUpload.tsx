@@ -41,6 +41,16 @@ function ImageUpload() {
         }
     }
 
+
+    const fileToBase64 = (file: File): Promise<string> => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = error => reject(error);
+        });
+    }
+
     const OnConverToCodeButtonClick = async () => {
         if (!file || !model || !description) {
             console.log("Select All Field");
@@ -57,8 +67,6 @@ function ImageUpload() {
         // const imageUrl = await getDownloadURL(imageRef);
         // console.log(imageUrl);
 
-        const uid = uuid4();
-        console.log(uid);
         // Save Info To Database
         // const result = await axios.post('/api/wireframe-to-code', {
         //     uid: uid,
@@ -67,23 +75,32 @@ function ImageUpload() {
         //     model: model,
         //     email: user?.email
         // });
+        try {
+            const uid = uuid4();
+            console.log(uid);
 
+            // 
+            
+            const base64Image = await fileToBase64(file);
+            const result = await axios.post('/api/wireframe-to-code', {
+                uid: uid,
+                description: description,
+                imageUrl: base64Image, // Imagen en base64
+                model: model,
+                email: user?.email
+            });
 
-        const result = await axios.post('/api/wireframe-to-code', {
-            uid: uid,
-            description: description,
-            imageUrl: previewUrl,
-            model: model,
-            email: user?.email
-        });
-        if (result.data?.error) {
-            console.log("Not Enough credits");
-            toast('Not Enough Credits!');
+            if (result.data?.error) {
+                console.log("Not Enough credits");
+                toast('Not Enough Credits!');
+                setLoading(false);
+                return;
+            }
             setLoading(false);
-            return;
+            router.push('/view-code/' + uid);
+        } catch (error) {
+            toast('Error al procesar la imagen')
         }
-        setLoading(false);
-        router.push('/view-code/' + uid);
     }
 
     return (
@@ -93,7 +110,7 @@ function ImageUpload() {
                 flex flex-col items-center justify-center
                 '>
                     <CloudUpload color='purple' className='h-10 w-10 text-primary' />
-                    <h2 className='font-bold text-lg'>Sube una Imagen</h2>
+                    <h2 className='font-bold text-lg text-white'>Sube una Imagen</h2>
 
                     <p className='text-gray-400 text-xs mt-2'>Presiona el Botón para Escoger tu Wireframe </p>
                     <div className='p-5 w-full flex mt-4 justify-center'>
